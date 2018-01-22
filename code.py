@@ -1,24 +1,33 @@
 import web
-from libs.sentiment_service import SentimentService
+import serial
+from textblob import TextBlob
+from libs.analyse_sentiments import TweetBank, TweetSentimentService
 from libs.twitterapi import TwitterAPI
-from nltk.classify import NaiveBayesClassifier
-
+from textblob.classifiers import NaiveBayesClassifier
+from nltk.tokenize import TweetTokenizer
+from textblob.sentiments import NaiveBayesAnalyzer, PatternAnalyzer
 
 urls = (
     '/', 'search',
     '/index', 'index',
     '/show/(.*)', 'show'
 )
-### Templates
-t_globals = {
-    'datestr': web.datestr
-}
-render  = web.template.render('templates/')
+
+def add_global_hook():
+    tweets = TweetBank(2000)
+    train, test = tweets.data_set()
+    naive_bayes = NaiveBayesClassifier(train)
+    tweetsent_service = TweetSentimentService(naive_bayes,test)
+    g = web.storage({"tweetsent_service": tweetsent_service})
+    def _wrapper(handler):
+        web.ctx.globals = g
+        return handler()
+    return _wrapper
 
 twitter= TwitterAPI()
-sentiment_service =  SentimentService()
-classifier = sentiment_service.train_classifier(NaiveBayesClassifier.train, 2000)
-# results = sentiment_service.accuracy(classifier)
+
+render  = web.template.render('templates/')
+
 
 class search:
     def GET(self):
@@ -40,13 +49,17 @@ class show:
 
     def POST(self,tweet):
         data = web.data()
-        web.debug(tweet)
-        result, clas = sentiment_service.classify_tweet(tweet)
-        web.debug(result)
-        web.debug(clas)
+        classification = TextBlob(tweet, analyzer=NaiveBayesAnalyzer())
+        neg, pos =  web.ctx.globals.tweetsent_service.classify_tweet(tweet)
+        web.debug(neg)
+        web.debug(pos)
+        #web.debug( web.ctx.globals.tweetsent_service.accuracy())
+        cl =  web.ctx.globals.tweetsent_service.classify(tweet)
+        web.debug(cl)
+        web.debug(classification.sentiment)
         return render.show(tweet)
-
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
+    app.add_processor(add_global_hook())
     app.run()

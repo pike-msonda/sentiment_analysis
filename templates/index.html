@@ -10,9 +10,9 @@ $def with(tweets)
               </tr>
               $for tweet in tweets
                 <tr>
-                  <td>$tweet.text</td>
+                  <td>$tweet</td>
                   <td>
-                    <form id='analyse_single_tweet' action="/show/$tweet.text" method='post'>
+                    <form id='analyse_single_tweet' action="/show/$tweet" method='post'>
                          <input type="submit" value="Analyse"/>
                     </form>
                 </tr>
