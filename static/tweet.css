@@ -1,0 +1,97 @@
+/*TABLE CSS*/
+#tweets {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    height: 20%;
+    margin-top:20px;
+    margin-right:20px;
+    margin-bottom:20px;
+    margin-left:20px;
+}
+
+#tweets td, #tweets th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 25px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#tweets tr:nth-child(even){background-color: #f2f2f2;}
+
+#tweets tr:hover {background-color: #ddd;}
+
+#tweets th {
+    padding-top: 12px;
+    padding-bottom: 16px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+/*Button CSS*/
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+
+/*INPUT BOX CSS in search.html*/
+.body{
+  background-image: url("twitterlogo_1x.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.topnav {
+  overflow:auto;
+  margin: auto;
+  background-color: #333;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.search_tweets{
+  width: 1000px;
+  height: 1000px;
+  margin: auto;
+  margin-top: 250px;
+
+}
+.search{
+  width: 80%;
+  padding: 10px;
+  font-size: 20px;
+}
+.submit{
+  width: 15%;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #333399;
+  color: white;
+}

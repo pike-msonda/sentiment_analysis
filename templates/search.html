@@ -1,13 +1,13 @@
 $def with()
 <html>
-  <head> </head>
-    <title></title>
-      <body>
-        <form id='search_form' action="/index" method='post'>
-            <table>
-              <tr><th><label for="search_topic">Search topic:</label></th><td><input type="text" id="search" name="search"/></td></tr>
-              <tr><th><label for="search_button"></label></th><td><input type="submit" value="Search"/></td></tr>
-            </table>
-        </form>
+  <head>
+  </head>
+    <body class="body">
+        <div id="searchContainer">
+              <form class="search_tweets" action="/index" method="post">
+                    <input id="search" class="search" name="search" type="text" />
+                    <input id="submit" name="submit" type="submit" class="submit" value="Search" />
+              </form>
+        </div>
       </body>
 </html

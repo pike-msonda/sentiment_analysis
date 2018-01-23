@@ -26,7 +26,7 @@ def add_global_hook():
 
 twitter= TwitterAPI()
 
-render  = web.template.render('templates/')
+render  = web.template.render('templates', base='base')
 
 
 class search:
@@ -49,15 +49,13 @@ class show:
 
     def POST(self,tweet):
         data = web.data()
-        classification = TextBlob(tweet, analyzer=NaiveBayesAnalyzer())
+        # classification = TextBlob(tweet, analyzer=NaiveBayesAnalyzer())
         neg, pos =  web.ctx.globals.tweetsent_service.classify_tweet(tweet)
-        web.debug(neg)
-        web.debug(pos)
         #web.debug( web.ctx.globals.tweetsent_service.accuracy())
         cl =  web.ctx.globals.tweetsent_service.classify(tweet)
-        web.debug(cl)
-        web.debug(classification.sentiment)
-        return render.show(tweet)
+        # web.debug(cl)
+        # web.debug(classification.sentiment)
+        return render.show(tweet,neg, pos, cl)
 
 if __name__ == "__main__":
     app = web.application(urls, globals())

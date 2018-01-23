@@ -1,21 +1,22 @@
 $def with(tweets)
 <html>
-  <head> </head>
+<head>
     <title></title>
-      <body>
-          <table border = 1 >
-            <thead>
-                <th>Tweets</th>
-                <th> Action</th>
-              </tr>
-              $for tweet in tweets
-                <tr>
-                  <td>$tweet</td>
-                  <td>
-                    <form id='analyse_single_tweet' action="/show/$tweet" method='post'>
-                         <input type="submit" value="Analyse"/>
-                    </form>
-                </tr>
-            </table>
-        </form>
+</head>
+<body>
+  <table id="tweets" >
+    <thead>
+        <tr>
+            <th>Tweets</th>
+            <th> Action</th>
+        </tr>
+            $for tweet in tweets
+            <tr>
+                <td id="tweet">$tweet</td>
+                <td>
+                  <form id='analyse_single_tweet' action="/show/$tweet" method='post'>
+                      <input class = "button" type="submit" value="Analyse"/>
+                  </form>
+            </tr>
+  </table>
 </html

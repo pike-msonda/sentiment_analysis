@@ -1,5 +1,23 @@
-$def with(tweet)
-<h1> Hello </h1>
-<form>
+$def with(tweet, neg, pos, cl)
+<html>
+      <head>
+      </head>
 
-</from>
+      <body>
+        <table id="tweets" >
+          <thead>
+              <tr>
+                  <th>Tweet</th>
+                  <th>Negative </th>
+                  <th>Positive</th>
+                  <th>Classification</th>
+              </tr>
+                  <tr>
+                      <td id ="tweet"> $tweet</td>
+                      <td id ="tweet">$neg</td>
+                      <td id ="tweet">$pos</td>
+                      <td id ="tweet">$cl</td>
+                  </tr>
+        </table>
+      </bdoy>
+</html>
