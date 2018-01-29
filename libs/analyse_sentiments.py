@@ -1,5 +1,5 @@
 from textblob import TextBlob
-from textblob.classifiers import NaiveBayesClassifier
+from textblob.classifiers import NaiveBayesClassifier,MaxEntClassifier
 from nltk.corpus import twitter_samples, stopwords
 from nltk.sentiment.util import *
 from nltk.tokenize import TweetTokenizer

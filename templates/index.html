@@ -10,13 +10,16 @@ $def with(tweets)
             <th>Tweets</th>
             <th> Action</th>
         </tr>
+    </thead>
+    <tbody>
             $for tweet in tweets
             <tr>
-                <td id="tweet">$tweet</td>
+                <td id="tweet"><span style="word-break:break-all;">$tweet</span></td>
                 <td>
                   <form id='analyse_single_tweet' action="/show/$tweet" method='post'>
-                      <input class = "button" type="submit" value="Analyse"/>
-                  </form>
+                      <input class = "button" type="submit" value="Classify"/>
+                  </td>
             </tr>
+      </tbody>
   </table>
 </html

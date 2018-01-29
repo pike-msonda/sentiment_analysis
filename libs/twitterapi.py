@@ -23,7 +23,8 @@ class TwitterAPI:
     def retrieve_tweets(self, search_topic):
         self.api = self.OAuth()
         tweets = []
-        results = self.api.search(search_topic)
+        results = self.api.search(search_topic, lang='en', result_type='recent',
+        show_user=False)
         for tweet in results:
             tweets.append(self.strip_all_entities(self.strip_links(tweet.text)))
         return tweets

@@ -5,6 +5,12 @@ $def with()
     <body class="body">
         <div id="searchContainer">
               <form class="search_tweets" action="/index" method="post">
+                <div class="styled-select blue semi-square">
+                <select id ="classifiers" name=classifiers>
+                  <option>Naive Bayes</option>
+                  <option>Maxent</option>
+                </select>
+              </div>
                     <input id="search" class="search" name="search" type="text" />
                     <input id="submit" name="submit" type="submit" class="submit" value="Search" />
               </form>

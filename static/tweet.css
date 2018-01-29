@@ -2,8 +2,9 @@
 #tweets {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 70%;
     height: 20%;
+    overflow-y: scroll;
     margin-top:20px;
     margin-right:20px;
     margin-bottom:20px;
