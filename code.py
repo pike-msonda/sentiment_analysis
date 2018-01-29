@@ -65,7 +65,7 @@ class show:
         test_set = web.ctx.globals.test_set
 
         if (classifier_name == "Maxent"):
-            kwargs = {'max_iter':3}
+            kwargs = {'max_iter':3, 'algorithm':'gis'}
             classifier.train(**kwargs)
         tweetsent_service =  TweetSentimentService(classifier, test_set)
         neg, pos =  tweetsent_service.classify_tweet(tweet)
